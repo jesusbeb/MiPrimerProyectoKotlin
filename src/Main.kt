@@ -47,5 +47,27 @@ fun main(args: Array<String>) {
     println(mensaje)
 
 
+    val nombreColor = "Amarillo"
+    when (nombreColor){
+        "Amarillo" -> println("$nombreColor: El amarillo es el color de la alegria")
+        "Rojo", "Carmesi" -> println("$nombreColor: Este color simboliza el calor") //Se ejecuta esta linea para cualquiera de los colores
+        else -> println("No hay informacion para el color")
+    }
+
+    val code = 401
+    when(code){
+        in 200..299 -> println("Todo ha ido bien") //Si el valor esta entre 200 y 299
+        in 400..500 -> println("Algo ha fallado") //entre 400 y 500
+        else -> println("Codigo desconocido, algo ha fallado")
+    }
+
+    val tallaDeZapatos = 42
+    val mensajeZ = when(tallaDeZapatos){
+        41,43 -> "Tenemos disponibles" //41 o 43
+        42,44 -> "Casi no nos quedan" //42 o 44
+        45 -> "Lo siento no tenemos disponible" //45
+        else -> "Estos zapatos solo vienen en tallas 41, 42, 43, 44 y 45"
+    }
+    println(mensajeZ)
 
 }
