@@ -70,4 +70,18 @@ fun main(args: Array<String>) {
     }
     println(mensajeZ)
 
+
+    var contador = 10
+    while(contador > 0){
+        println("El valor de contador es $contador")
+        contador--
+    }
+
+
+    do {
+        println("Generando numero aleatorio...")
+        val numeroAleatorio = (0..100).random() //rango de 0 a 100 0..100
+        println("El numero generado es: $numeroAleatorio")
+    } while(numeroAleatorio > 50)
+
 }
