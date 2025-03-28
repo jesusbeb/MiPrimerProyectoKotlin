@@ -47,6 +47,7 @@ fun main(args: Array<String>) {
     println(mensaje)
 
 
+    //when
     val nombreColor = "Amarillo"
     when (nombreColor){
         "Amarillo" -> println("$nombreColor: El amarillo es el color de la alegria")
@@ -71,6 +72,7 @@ fun main(args: Array<String>) {
     println(mensajeZ)
 
 
+    //while
     var contador = 10
     while(contador > 0){
         println("El valor de contador es $contador")
@@ -78,10 +80,33 @@ fun main(args: Array<String>) {
     }
 
 
+    //do while
     do {
         println("Generando numero aleatorio...")
         val numeroAleatorio = (0..100).random() //rango de 0 a 100 0..100
         println("El numero generado es: $numeroAleatorio")
     } while(numeroAleatorio > 50)
+
+
+    //for
+    val listaDeFrutas = listOf("Manzana", "Pera", "Frambuesa", "Durazno") //declaramos una lista
+    for (elemento in listaDeFrutas){
+        println("Hoy voy a comerme una fruta llamada $elemento")
+    }
+
+    //forEach es una funcion anonima
+    listaDeFrutas.forEach {
+        elemento -> println("Hoy voy a comerme una nueva fruta llamada $elemento")
+    }
+
+    //Convertimos listaDeFrutas en una lista de tipo entero, cuyos numeros enteros seran
+    //la longitud de cada elemento de listaDeFrutas
+    val caracteresDeFruta: List<Int> = listaDeFrutas.map { elemento -> elemento.length}
+    println(caracteresDeFruta)
+
+    //Filtramos caracteresDeFruta en una nueva lista con elementos que cumplan la condicion indicada
+    val listaFiltrada = caracteresDeFruta.filter { largoDeFruta -> largoDeFruta > 5 }
+    println(listaFiltrada)
+
 
 }
