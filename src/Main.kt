@@ -143,4 +143,12 @@ fun main(args: Array<String>) {
     val resultado : Int = try { primerValor/segundValor } catch (excepcion2 : Exception) { 0 }
     println(resultado)
 
+
+    //Elvis operator ?: sirve para convertir de nulables a no nulables. Evita errores del
+    //tipo NullPointerException al proporcionar un valor por defecto a una variable nula.
+    //Simplifica la escritura de codigo al reducir la necesidad de comprobaciones explicitas de nulos
+    var nombre3: String? = null
+    var caracteresDeNombre3 : Int = nombre3?.length ?: 0
+    println(caracteresDeNombre3)
+
 }
