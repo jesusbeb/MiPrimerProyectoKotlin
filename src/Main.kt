@@ -109,4 +109,38 @@ fun main(args: Array<String>) {
     println(listaFiltrada)
 
 
+    //Se usa el operador ? junto al tipo de dato para declarar una variable nula.
+    //Al ser variable nula, no se pueda usar la propiedad length, pero obligamos al
+    //compilador a ejecutar el codigo usando !! lo cual generara error (!! se recomienda no usarlo al crear codigo)
+    //Si usamos el operador ? hacemos una llamada segura, ya que no ejecutara esa linea
+    //de codigo en caso de que pudiera generar error
+    var nombre2 : String? = null
+    //nombre2!!.length
+    nombre2?.length
+    println(nombre2?.length)
+
+    //Try Catch
+    try { //Intentamos el siguiente codigo y si genera error...
+        nombre2!!.length
+    } catch (excepcion : NullPointerException){ //Capturamos el error, creando una excepcion del tipo NullPointerException
+        println("Ha ocurrido un error") //Imprimimos un mensaje si se ejecuta el catch
+    } finally{ //Se ejecuta al final de try y catch para mostrar lo que quieramos
+        println("Finalmente ha ocurrido un error... Cerrando aplicacion")
+    }
+
+    //Podemos ejecutar nuestra propia excepcion
+    try {
+        throw NullPointerException("Referencia nula")
+    } catch (excepcion : NullPointerException){
+        println("Ha ocurrido un error. Referencia nula")
+    } finally{
+        println("Finalmente ha ocurrido un error... Cerrando aplicacion")
+    }
+
+    //Podemos usar try-catch para capturar un error y devolver un valor por defecto
+    val primerValor = 10
+    val segundValor = 0
+    val resultado : Int = try { primerValor/segundValor } catch (excepcion2 : Exception) { 0 }
+    println(resultado)
+
 }
