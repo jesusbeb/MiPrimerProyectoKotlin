@@ -186,4 +186,34 @@ fun main(args: Array<String>) {
     println("Nuestro array $myArray") //Nos devuelve bytecode. En Kotlin no es aconsejable usar Arrays
     println("Array como lista ${myArray.toList()}") //Convertimos el array a una lista
 
+
+    //Ordenamiento de listas con las funciones de kotlin
+    val numerosDeLoteria = listOf(11,22,43,56,78,66) //Creamos una lista
+    println(numerosDeLoteria)
+
+    val numerosSorted = numerosDeLoteria.sorted() //Ordenamos en orden ascendente
+    println(numerosSorted)
+
+    val numerosDeLoteriaDescendientes = numerosDeLoteria.sortedDescending()
+    println(numerosDeLoteriaDescendientes)
+
+    //Ordenamos segun una condicion. En este caso se ordenan primero los
+    //numeros mayores a 50, seguidos de los menores a 50
+    val ordenarPorMultiplos = numerosDeLoteria.sortedBy { numero -> numero < 50 }
+    println(ordenarPorMultiplos)
+
+    val numerosAleatorios = numerosDeLoteria.shuffled()
+    println(numerosAleatorios)
+
+    val numerosEnReversa = numerosDeLoteria.reversed()
+    println(numerosEnReversa)
+
+    //Convertimos la lista de int en una lista de String con mensajes de texto
+    val mensajesDeNumeros = numerosDeLoteria.map { numero -> "Tu numero de loteria es $numero" }
+    println(mensajesDeNumeros)
+
+    //Filtramos numeros segun una condicion
+    val numerosFiltrados = numerosDeLoteria.filter { numero -> numero > 50 }
+    println(numerosFiltrados)
+
 }
