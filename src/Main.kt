@@ -151,4 +151,39 @@ fun main(args: Array<String>) {
     var caracteresDeNombre3 : Int = nombre3?.length ?: 0
     println(caracteresDeNombre3)
 
+
+    //Listas
+    //Las listas en Kotlin son parte fundamental de las 'collections' y se dividen en
+    //dos grandes tipos: listas mutables e inmutables.
+    val listaDeNombres = listOf("Juan", "Enrique", "Camila") //Lista inmutable. Ya no podemos agregar ni eliminar
+    println(listaDeNombres)
+
+    val listaVacia = mutableListOf<String>() //lista mutable
+    println(listaVacia)
+
+    listaVacia.add("Juan") //Agregamos un elemento
+    println(listaVacia)
+
+    val valorUsandoGet = listaVacia.get(0) //Forma de obtener un elemento de la lista
+    println(valorUsandoGet)
+
+    val valorUsandoOperador = listaVacia[0] //Otra forma de obtener un elemento
+    println(valorUsandoOperador)
+
+    val primerValorL = listaDeNombres.firstOrNull() //Obtenemos el primer valor de la lista, y si esta vacia, devuelve un String vacio
+    println(primerValorL)
+
+    listaVacia.removeAt(0) //Eliminamos un elemento
+    println(listaVacia)
+
+    listaVacia.add("Enrique")
+    println(listaVacia)
+    listaVacia.removeIf{caracteres -> caracteres.length >3} //Eliminamos un elemento si se cumple cierta condicion
+    println(listaVacia)
+
+    //Arreglos
+    val myArray = arrayOf(1,2,3,4)
+    println("Nuestro array $myArray") //Nos devuelve bytecode. En Kotlin no es aconsejable usar Arrays
+    println("Array como lista ${myArray.toList()}") //Convertimos el array a una lista
+
 }
