@@ -216,4 +216,46 @@ fun main(args: Array<String>) {
     val numerosFiltrados = numerosDeLoteria.filter { numero -> numero > 50 }
     println(numerosFiltrados)
 
+
+    //Los maps en Kotlin forman parte de la familia de las colecciones y se utilizan para
+    //almacenar pares de elementos, donde cada clave tiene un valor asociado. Esta
+    //estructura de datos se conoce como clave-valor y es fundamental para organizar y
+    //manipular datos de manera eficiente en una aplicación.
+    //No confundir los maps con la función map. Aquí, nos centramos en los maps como colecciones de datos.
+    val edadDeSuperHeroes = mapOf( //Creamos un mapa inmutable
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    )
+    println(edadDeSuperHeroes)
+
+    val edadSuperHeroesMutable = mutableMapOf(
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    )
+    println(edadSuperHeroesMutable)
+
+    //Agregamos un elemento al map
+    edadSuperHeroesMutable.put("Wolverine", 45)
+    println(edadSuperHeroesMutable)
+
+    //Otra forma de agregar un elemento
+    edadSuperHeroesMutable["Storm"] = 30
+    println(edadSuperHeroesMutable)
+
+    //Para obtener un valor, se necesita la key. Obtenemos el valor de la key Ironman
+    val edadIronman = edadSuperHeroesMutable["Ironman"]
+    println(edadIronman)
+
+    //Eliminamos elementos de map. Se hace pasando la clave
+    edadSuperHeroesMutable.remove("Wolverine")
+    println(edadSuperHeroesMutable)
+
+    //Obtenemos todas las claves
+    println(edadSuperHeroesMutable.keys)
+
+    //Obtenemos todos los valores
+    println(edadSuperHeroesMutable.values)
+
 }
