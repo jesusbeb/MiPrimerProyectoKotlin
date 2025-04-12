@@ -258,4 +258,29 @@ fun main(args: Array<String>) {
     //Obtenemos todos los valores
     println(edadSuperHeroesMutable.values)
 
+
+    //Los sets en Kotlin son una colección que se caracteriza por no permitir
+    //elementos duplicados.
+    //Creamos un set inmutable con elementos duplicados, pero este solo almacenara los no repetidos
+    val vocablesRepetidas = setOf("a", "e", "i", "o", "u", "a", "e", "i", "o", "u")
+    println(vocablesRepetidas)
+
+    val numerosFavoritos = mutableSetOf(1,2,3,4)
+    println(numerosFavoritos)
+    numerosFavoritos.add(5)
+    numerosFavoritos.add(4)
+    println(numerosFavoritos)
+
+    //En los sets se eliminan los elementos indicando el valor del elemento
+    numerosFavoritos.remove(5)
+    println(numerosFavoritos)
+
+    //Obtenemos un elemento segun una condicion. En lugar de solo usar first, usamos
+    //firstOrNull en caso de que la condicion no se cumpla y nos devuelva un nulable.
+    //firstOrNull solo devuelve el primer elemento que cumpla dicha condicion.
+    //Especificamos el posible nulable al declarar la variable por si hay que manejar una excepcion
+    val valorDelSet: Int? = numerosFavoritos.firstOrNull { numero -> numero > 2 }
+    println(valorDelSet)
+
+
 }
