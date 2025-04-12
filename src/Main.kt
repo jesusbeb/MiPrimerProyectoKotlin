@@ -283,4 +283,54 @@ fun main(args: Array<String>) {
     println(valorDelSet)
 
 
+    //Funciones
+    val fraseAleatoria = "En Platzi nunca paramos de aprender"
+    println(randomCase(fraseAleatoria))
+    imprimirFrase(randomCase(fraseAleatoria))
+
+    //Llamamos una funcion de extension desde una cadena de texto
+    val fraseAleatoria2 = "En Platzi nunca paramos de aprender...".randomCase2()
+    imprimirFrase(fraseAleatoria2)
+
+}
+
+
+//Al declarar una funcion se tiene que hacer fuera de la funcion main
+//Entre parentesis se declara el nombre del parametro y tipo.
+//Fuera del parentesis van dos puntos y tipo de dato que retornara la funcion
+//Esta funcion convierte todo un String a mayusculas o minusculas, esto segun el
+//residuo de la division de un numero aleatorio entre 2
+fun randomCase(frase : String) : String {
+    val numeroAleatorio = 0..99 //variable que especifica un rango de 0 a 99
+    val resultadoAleatorio = numeroAleatorio.random() //se genera un numero aleatorio segun el rango
+    //.rem() se usa para obtener el residuo de una division entre algun numero que se le especifique
+    return if (resultadoAleatorio.rem(2) == 0){
+        frase.toUpperCase()
+    } else {
+        frase.toLowerCase()
+    }
+}
+
+
+//Funcion que no devuelve algun valor especifico, devuelve Unit (similar a void en
+//otros lenguajes). Solo imprime un String. Se puede omitir Unit en la declaracion de la funcion
+fun imprimirFrase(frase : String) : Unit {
+    println("Tu frase es: $frase")
+}
+
+
+//Funcion de extension
+//Las funciones de extensión en Kotlin te permiten añadir funcionalidad a un
+//tipo existente sin tener que heredar de él o modificar su código original.
+//Para crear una función de extensión, se usa la misma sintaxis de una función normal,
+//pero precedida por el tipo al que deseas añadir la extensión.
+//Usamos this para utilizar la cadena de texto que llame a esta funcion
+fun String.randomCase2() : String {
+    val numeroAleatorio = 0..99
+    val resultadoAleatorio = numeroAleatorio.random()
+    return if (resultadoAleatorio.rem(2) == 0){
+        this.toUpperCase()
+    } else {
+        this.toLowerCase()
+    }
 }
