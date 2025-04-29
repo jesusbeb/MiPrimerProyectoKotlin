@@ -292,6 +292,10 @@ fun main(args: Array<String>) {
     val fraseAleatoria2 = "En Platzi nunca paramos de aprender...".randomCase2()
     imprimirFrase(fraseAleatoria2)
 
+
+    //Parametros nombrados se usa como buena practica para identificar los parametros que se envian a la funcion
+    imprimirNombre(nombre = "Jesus", apellido = "Beltran")
+
 }
 
 
@@ -333,4 +337,10 @@ fun String.randomCase2() : String {
     } else {
         this.toLowerCase()
     }
+}
+
+
+//Parametros por defecto, se usan cuando dicho parametro no es enviado cuando se llama a la funcion
+fun imprimirNombre(nombre: String, segundoNombre: String = "", apellido: String){
+    println("Mi nombre es $nombre $segundoNombre $apellido")
 }
