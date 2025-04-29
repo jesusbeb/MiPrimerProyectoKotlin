@@ -296,6 +296,22 @@ fun main(args: Array<String>) {
     //Parametros nombrados se usa como buena practica para identificar los parametros que se envian a la funcion
     imprimirNombre(nombre = "Jesus", apellido = "Beltran")
 
+
+    //Lambdas, tambien conocidas como funciones anonimas
+    //val nombreLambda : (tipoParametroEntrada) -> tipoRetorno = { nombreParametroEntrada -> nombreParametroEntrada.funcion}
+    //en la variable lambdaEjecutada almacenamos el valor Int que retornara myLambda al
+    //enviarle entre parentesis el valor que requiere
+    val myLambda : (String) -> Int = { valor -> valor.length }
+    val lambdaEjecutada: Int = myLambda("Hola Platzi")
+    println(lambdaEjecutada)
+
+    //Podemos pasar las lambdas como parametros a otras funciones.
+    //Creamos una lista de saludos
+    //Creamos una segunda lista con la longitud de caracteres de los saludos
+    val saludos = listOf("hello", "Hola", "Ciao")
+    val longitudDeSaludos = saludos.map(myLambda)
+    println(longitudDeSaludos)
+
 }
 
 
