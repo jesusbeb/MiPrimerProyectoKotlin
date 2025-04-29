@@ -312,6 +312,25 @@ fun main(args: Array<String>) {
     val longitudDeSaludos = saludos.map(myLambda)
     println(longitudDeSaludos)
 
+
+    //Funcion de alto orden, llamamos a la superfuncion, enviando el argumento del valorInicial
+    //y definimos la lambda llamada block
+    val largoDelValorInicial = superFuncion(valorInicial = "Hola!", block = { valor ->
+        valor.length
+    })
+    /* //Tambien se puede sacar la lambda fuera de la funcion:
+    val largoDelValorInicial = superFuncion(valorInicial = "Hola!") { valor ->
+        valor.length
+    }*/
+    println(largoDelValorInicial)
+
+    //Variable de tipo lambda que devuelve un String, dicho String se obtiene de
+    //funcionInception al enviarle tambien un String. Si imprimimos "lambda: () -> String" se
+    //devuelve una funcion, por lo que se necesita obtener el valor de la lambda para imprimirlo
+    val lambda: () -> String = funcionInception("Jesus")
+    val valorLambda: String = lambda()
+    println(valorLambda)
+
 }
 
 
@@ -359,4 +378,22 @@ fun String.randomCase2() : String {
 //Parametros por defecto, se usan cuando dicho parametro no es enviado cuando se llama a la funcion
 fun imprimirNombre(nombre: String, segundoNombre: String = "", apellido: String){
     println("Mi nombre es $nombre $segundoNombre $apellido")
+}
+
+
+//Funcion de Alto Orden
+//Como parametro recibe un String, block es una sintaxis recomendada para nombrar las lambdas,
+//en este caso es una lambda que recibe un String y devuelve un entero. La funcion igual devuelve un entero
+//Esta funcion retorna el valor del block al pasarle el valorInicial
+fun superFuncion(valorInicial : String, block : (String) -> Int) : Int {
+    return block(valorInicial)
+}
+
+//Funcion que recibe como parametro un String y devuelve una lambda que no
+//recibe parametro y devuelve tambien un String   () -> String
+//Retornamos las lambda entre {} y ahi podemos colocar el String que devuelve
+fun funcionInception(nombre : String) : () -> String {
+    return {
+        "Hola desde la lambda $nombre"
+    }
 }
