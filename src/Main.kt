@@ -331,7 +331,29 @@ fun main(args: Array<String>) {
     val valorLambda: String = lambda()
     println(valorLambda)
 
+
+    /* La función let es una de las Scope Functions más utilizadas en Kotlin,
+    especialmente cuando trabajamos con variables anulables. El poder de let radica
+    en su capacidad de ejecutar un bloque de código solo cuando una variable no es nula,
+    lo cual nos ahorra posibles errores de ejecución derivados de un
+    null pointer exception.
+    */
+    //Creamos una variable nula
+    //Usamos la funcion let con el operador safe call (?)
+    //Como la variable es null, el codigo no se ejecutara al menos que tenga un valor
+    var nombre4 : String? = null
+    nombre4?.let {
+        valor -> println("El nombre no es nulo, es $valor")
+    }
+    //Ahora asignamos un valor a la variable, con lo cual ahora si se ejecutara el codigo
+    nombre4 = "Jesus"
+    nombre4?.let{
+        valor ->
+        println("El nombre no es nulo, es $valor")
+    }
+
 }
+
 
 
 //Al declarar una funcion se tiene que hacer fuera de la funcion main
