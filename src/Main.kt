@@ -352,6 +352,21 @@ fun main(args: Array<String>) {
         println("El nombre no es nulo, es $valor")
     }
 
+
+    /*La función with en Kotlin es una herramienta poderosa que permite mejorar la
+    legibilidad y mantener el código más limpio. Al utilizar with, podemos acceder a
+    las propiedades de un objeto que le pasamos como parámetro, simplificando el acceso a
+    estas sin repetir el nombre de la variable en múltiples líneas.
+    */
+    //Declaramos una lista de colores
+    //Pasamos la lista a la funcion with y dentro de su lambda podemos
+    //acceder a las propiedades de la lista
+    val colores = listOf("Azul", "Amarillo", "Rojo")
+    with(colores) {
+        println("Nuestros colores son $this")
+        println("Esta listia tiene una cantidad de colores de $size")
+    }
+
 }
 
 
