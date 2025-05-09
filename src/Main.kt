@@ -385,6 +385,31 @@ fun main(args: Array<String>) {
         }
     println(moviles)
 
+
+    /*La función apply es una herramienta muy útil que permite realizar
+    operaciones sobre una variable y devolver su valor. Esta función es especialmente
+    práctica cuando se trata de manipular variables anulables de forma segura. A
+    diferencia de otras funciones, como rom, no es necesario devolver explícitamente el
+    resultado desde una lambda, ya que apply lo hace automáticamente. Además, al
+    combinarse con un safe cast, la función apply permite trabajar con
+    variables anulables previniendo la modificación de propiedades incorrectamente si
+    no se les ha asignado un valor.
+    */
+    //Apply devuelve el resultado sin usar this, a diferencia de Run
+    val moviles2 = mutableListOf("Google Pixel 2XL", "Google Pixel 4a",
+        "Huawei Redmi 9", "Xiaomi mi a3").apply{
+            removeIf{ movil -> movil.contains("Google")}
+    }
+    println(moviles2)
+
+    //Podemos tener una funcion Apply segura al combinarla con un safe cast en el
+    //caso de trabajar con variables nulables y evitar pointer exceptions
+    val colores2 : MutableList<String>? = mutableListOf("Amarillo", "Azul", "Rojo")
+    colores2?.apply {
+        println("Nuestros colores son $this")
+        println("La cantidad de colores es $size")
+    }
+
 }
 
 
