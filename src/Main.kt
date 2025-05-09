@@ -367,6 +367,24 @@ fun main(args: Array<String>) {
         println("Esta listia tiene una cantidad de colores de $size")
     }
 
+
+    /*La función run es una poderosa herramienta en Kotlin que permite ejecutar una
+    serie de operaciones sobre una variable después de ser declarada. Esta función es
+    particularmente útil cuando necesitas modificar una lista de elementos antes de
+    utilizarla en otras partes de tu código.
+    */
+    //Declaramos una lista mutable
+    //Usamos la funcion run y dentro de su lambda usamos la funcion removeIf para eliminar
+    //los elementos que cumplan una condicion, dicha condicion sera para los elementos que
+    //contengan el texto "Google"
+    //Se devuelve la lista modificada con this
+    val moviles = mutableListOf("Google Pixel 2XL", "Google Pixel 4a", "Huawei Redmi 9", "Xiaomi mi a3")
+        .run {
+            removeIf { movil -> movil.contains("Google") }
+            this
+        }
+    println(moviles)
+
 }
 
 
