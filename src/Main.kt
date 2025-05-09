@@ -410,6 +410,22 @@ fun main(args: Array<String>) {
         println("La cantidad de colores es $size")
     }
 
+
+    /*La función also en Kotlin es una herramienta extremadamente útil que puede
+    ayudarte a mejorar la claridad y la eficiencia de tu código. Su principal
+    propósito es realizar una operación en un objeto y luego devolver este mismo
+    objeto para que pueda ser utilizado por otra función más adelante.
+    Esta capacidad de "encadenamiento" hace que la función also sea muy poderosa para
+    depurar y modificar el estado de las variables de manera ordenada y limpia.
+    */
+    //Aplicamos "also" a la lista y la imprimimos. Despues fuera del also podemos usar otra
+    //funcion como "asReversed" e imprimir el objeto lista para ver el resultado
+    val moviles3 = mutableListOf("Google Pixel 2XL", "Google Pixel 4a",
+        "Huawei Redmi 9", "Xiaomi mi a3").also {
+            lista -> println("El valor original de la lista es $lista")
+    }.asReversed()
+    println(moviles3)
+
 }
 
 
